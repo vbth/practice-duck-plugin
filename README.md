@@ -17,7 +17,7 @@ The project documents an AI music workflow as a Claude plugin. Given the score o
 [A. Overview: what does it do?](#a-overview-what-does-it-do)<br>
 [B. Start: how to begin?](#b-start-how-to-begin)<br>
 [C. Requirements: what is needed?](#c-requirements-what-is-needed)<br>
-[D. Rights: what does the skill ask?](#d-rights-what-does-the-skill-ask)<br>
+[D. Rights: what does the plugin ask?](#d-rights-what-does-the-plugin-ask)<br>
 [E. Workflow: which steps are there?](#e-workflow-which-steps-are-there)<br>
 [F. Flexibility: is the workflow binding?](#f-flexibility-is-the-workflow-binding)<br>
 [G. Result: what comes out?](#g-result-what-comes-out)<br>
@@ -62,15 +62,15 @@ The exact structure of the ZIP is shown in section [G](#g-result-what-comes-out)
 5. Answer the questions: rights first (Stop A), then title, melody part, seating, tempo and layouts (Stop B).
 6. Download the finished ZIP, unzip it and open `Start.html`.
 
-Requirements and rights: [C](#c-requirements-what-is-needed) and [D](#d-rights-what-does-the-skill-ask). The steps in detail: [E](#e-workflow-which-steps-are-there).
+Requirements and rights: [C](#c-requirements-what-is-needed) and [D](#d-rights-what-does-the-plugin-ask). The steps in detail: [E](#e-workflow-which-steps-are-there).
 
 ## C. Requirements: what is needed?
-Python with the packages the plugin lists, FluidSynth, ffmpeg, poppler and a soundfont (a fallback is used and reported). At the start the skill checks the installation. If something is missing or different, it lists what it would install and asks: the **tested versions** (recommended) or the **newest versions**. The versions used are recorded in the check log; newest versions are marked as not tested.
+Python with the packages the plugin lists, FluidSynth, ffmpeg, poppler and a soundfont (a fallback is used and reported). At the start the plugin checks the installation. If something is missing or different, it lists what it would install and asks: the **tested versions** (recommended) or the **newest versions**. The versions used are recorded in the check log; newest versions are marked as not tested.
 
-**Sound.** The audio is rendered with a soundfont: MuseScore General (installed by the skill `setup`, the default) or, on request, **GeneralUser GS 2.0.3 (beta)**, which is included in the plugin. GeneralUser GS is by S. Christian Collins ([original source](https://www.schristiancollins.com/generaluser.php), [repository](https://github.com/mrbumpy409/GeneralUser-GS)) and may be used for private and commercial music production under its own licence. To fit the upload limit the skill carries it **compressed to the SF3 format** (Ogg Vorbis, 7 MB instead of 32 MB, lossy); presets and licence text are unchanged. Details in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+**Sound.** The audio is rendered with a soundfont: MuseScore General (installed by the skill `setup`, the default) or, on request, **GeneralUser GS 2.0.3 (beta)**, which is included in the plugin. GeneralUser GS is by S. Christian Collins ([original source](https://www.schristiancollins.com/generaluser.php), [repository](https://github.com/mrbumpy409/GeneralUser-GS)) and may be used for private and commercial music production under its own licence. To fit the upload limit the plugin carries it **compressed to the SF3 format** (Ogg Vorbis, 7 MB instead of 32 MB, lossy); presets and licence text are unchanged. Details in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
-## D. Rights: what does the skill ask?
-Before it processes a score, the skill asks whether the score is **public domain, licensed, the user’s own work or unclear**, and notes the answer in the README of the package. It gives no legal advice, does not check the answer and grants no rights. Whether a score may be processed and passed on depends on its copyright and licence, and the responsibility lies with the user. The licence of the plugin ([`LICENSE.md`](LICENSE.md)) says nothing about the rights to the score.
+## D. Rights: what does the plugin ask?
+Before it processes a score, the plugin asks whether the score is **public domain, licensed, the user’s own work or unclear**, and notes the answer in the README of the package. It gives no legal advice, does not check the answer and grants no rights. Whether a score may be processed and passed on depends on its copyright and licence, and the responsibility lies with the user. The licence of the plugin ([`LICENSE.md`](LICENSE.md)) says nothing about the rights to the score.
 
 ## E. Workflow: which steps are there?
 ```mermaid
@@ -85,9 +85,9 @@ flowchart TD
     P4 --> P5["8. Final engraving"]
     P5 --> P6["9. Audio and audio test"]
     P6 --> P7["10. Documentation, self-check, package"]
-    P7 --> P8{{"11. Closing: proposals to improve the skill, if useful"}}
+    P7 --> P8{{"11. Closing: proposals to improve the plugin, if useful"}}
     P8 --> U2(["12. Download, unzip, check, share the part ZIPs with the choir or ensemble"])
-    P8 -.->|improved skill| U1
+    P8 -.->|improved plugin| U1
     style U1 fill:#fff,stroke:#000,stroke-width:2px
     style U3 fill:#fff,stroke:#000,stroke-width:2px
     style U2 fill:#fff,stroke:#000,stroke-width:2px
@@ -112,7 +112,7 @@ If a check fails, the AI agent fixes the problem and checks again, up to three t
 | 8 | Final engraving | The AI agent engraves the corrected DIN A4 score with a cover page and the chosen layouts. | Readable, pages filled, looked at? |
 | 9 | Audio | The AI agent creates MP3 and MIDI with tags and album cover and checks them technically (duration, gaps, clipping, loudness, stereo). | All files present, spot check done? |
 | 10 | Package | The AI agent writes the documents, including the settings file (every assumption and decision with its origin: user, AI agent, file or default), adds the start pages (`Start.html`, with two players in every part folder), checks itself and packs the ZIP with the part ZIPs. | Package check passes, ZIPs tested? |
-| 11 | Closing | The AI agent proposes improvements to the skill if useful. The user decides. | None |
+| 11 | Closing | The AI agent proposes improvements to the plugin if useful. The user decides. | None |
 | 12 | Download | The ZIP is downloaded and unzipped, `Start.html` opened and checked, the part ZIPs go to the choir or ensemble. The settings file is kept to repeat the result. | None |
 
 </details>
@@ -120,7 +120,7 @@ If a check fails, the AI agent fixes the problem and checks again, up to three t
 <details>
 <summary><h3>Notation elements: what is read, checked and set</h3></summary>
 
-**Process.** The AI agent reads the source bar by bar and writes pitches, durations, lyrics and signs into the score data; MusicXML, the proof print and the final score are built from it. Proofreading then runs in four passes: pitches and rhythm, lyrics, signs and lyric order, and signs and arcs. For the signs the AI agent first lists every sign it sees in the source (system by system, part by part, using the catalogue below) in a list, and only then does the plugin compare that list with the built score and add what is missing. Everything the skill cannot set is written down as `other` and ends up in the open points of the README; nothing is left out silently.
+**Process.** The AI agent reads the source bar by bar and writes pitches, durations, lyrics and signs into the score data; MusicXML, the proof print and the final score are built from it. Proofreading then runs in four passes: pitches and rhythm, lyrics, signs and lyric order, and signs and arcs. For the signs the AI agent first lists every sign it sees in the source (system by system, part by part, using the catalogue below) in a list, and only then does the plugin compare that list with the built score and add what is missing. Everything the plugin cannot set is written down as `other` and ends up in the open points of the README; nothing is left out silently.
 
 | Family | Read, checked and set | Printed as text only | Not supported (reported) |
 |---|---|---|---|
@@ -138,7 +138,7 @@ If a check fails, the AI agent fixes the problem and checks again, up to three t
 
 **What the audio and MIDI follow:** dynamics (levels), hairpins and cresc./dim. words (ramps), tempo marks and tempo changes (as approved at Stop B), repeats, endings and the playback order, fermatas (the note is held), grace notes (on the beat), ornaments, and, with the option `articulation_audio`, breath marks, caesuras, staccato, tenuto, accents and the small gaps between syllables. Everything else (chord symbols, rehearsal letters, part labels, other words) is printed only.
 
-Handwritten entries (pencil, circles, breath marks added by hand) are never music: they are reported as an open point, never transcribed. Special notation (aleatoric, clusters, microtones, graphic scores, neumes, tablature, figured bass) is always reported and never transcribed; at Stop B the skill asks whether such a piece should be made at all. The check log lists the passes and their findings.
+Handwritten entries (pencil, circles, breath marks added by hand) are never music: they are reported as an open point, never transcribed. Special notation (aleatoric, clusters, microtones, graphic scores, neumes, tablature, figured bass) is always reported and never transcribed; at Stop B the plugin asks whether such a piece should be made at all. The check log lists the passes and their findings.
 
 </details>
 
@@ -190,7 +190,7 @@ Practice_<Title>/
 │  └─ 4_Session_Handoff_<Title>.md
 └─ 4_Tools/
    ├─ 1_Project_Data_<Title>/                 (the data files of the piece)
-   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice_duck.plugin)
+   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice-duck.plugin)
 ```
 
 </details>
@@ -198,7 +198,7 @@ Practice_<Title>/
 <details>
 <summary>Layouts: what can be chosen at Stop B</summary>
 
-Layouts are made on request, nothing by default. At Stop B, four things are chosen, each freely combinable: the **sheet structure** (full score as in the source with its own number of parts per staff, or one sheet per part), the **part marking** (none, own part in colour, or own part black with the others light grey, in the full score) and the **verse guide** for several verses (none, thin line or grey band; the verse number stands at every system start) and, for the part sheets, **entry aids** (none, multi-bar rests with the number of bars, or also small cue notes of another part before the entrance). Each combination is a numbered PDF (1 to 12, the number is in the footer); the part folders get their own, the director's folder gets all. The example package shows every layout.
+Layouts are made on request, nothing by default. At Stop B, four things are chosen, each freely combinable: the **sheet structure** (full score as in the source with its own number of parts per staff, or one sheet per part), the **part marking** (none, own part in colour, or own part black with the others light grey, in the full score) and the **verse guide** for several verses (none, thin line or grey band; the verse number stands at every system start) and, for the part sheets, **entry aids** (none, multi-bar rests with the number of bars, or also small cue notes of another part before the entrance). Each combination is a numbered PDF (1 to 12, the number is in the footer); the part folders get their own, the director's folder gets all. The example package shows every layout. A piece without text (usually an instrumental piece) gets only the layouts without a verse guide, because a line or a band would change nothing there, and its folder names leave out the verse guide; a piece with text can have all twelve.
 
 **Adjustments.** If a part lies outside its usual range, the AI agent proposes to transpose the whole piece by a number of semitones (notes, key signature, chord symbols and audio follow). A two-part piece can be made for four parts by octave doubling: tenor and bass sing the upper and lower line an octave lower; no notes or harmony are added. Both are applied after proofreading, the source stays as a separate copy, the README states the change. With a licence or permission the permission must cover an adaptation.
 
@@ -215,7 +215,7 @@ Each part gets its **own mix**. The own part is always centred, and the other pa
 - **With accompaniment:** own part, melody −4 dB, piano accompaniment of all parts −12 dB.
 - **In the choir** (instrument pieces: **in the ensemble**): neighbours left and right −7 dB; a part at the edge of the seating also gets the next-but-one part on its free side at −9 dB; the rest −12 dB.
 - **Tutti:** all parts at equal level.
-- Every recording starts with the part’s starting note, then a short pause. Solo and with accompaniment also exist at a slower tempo (default 75 %, adjustable).
+- Every recording starts with the part’s starting note, then a short pause (in the instrument of the part; in the tutti files the starting notes of all parts follow one another, low to high, each in its own instrument). Solo and with accompaniment also exist at a slower tempo (default 75 %, adjustable).
 - Loudness −19 LUFS, light room reverb; the MIDI files carry the same volume and pan values.
 - The overview PDF generated for every piece (`2_Practice/1_Overview.pdf`) shows the mixes (dot size = level, position = left/right).
 
@@ -229,7 +229,7 @@ Each part gets its **own mix**. The own part is always centred, and the other pa
 The page check aborts below a staff space of 8 px and warns below 12 px. It was tried on drawn test pages only, not on real scans, so the limits are not calibrated and very blurred, tilted or noisy photos may be rejected.
 
 ## J. AI marking: how is AI content marked?
-Everything the skill creates is marked as created with AI assistance: the EU label "AI" and the note "Created with AI assistance." in the footer of every PDF, preceded by the year (never a full date), and the same note in the metadata of MP3, MIDI, MusicXML and PDF. The music itself does not come from the AI: the notes follow the source, the sound is software synthesis, and the AI helps to read, proofread and run the tools. Compare the notes and the music with the source before use. The label follows the European Commission's icons for labelling AI-generated content (see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)).
+Everything the plugin creates is marked as created with AI assistance: the EU label "AI" and the note "Created with AI assistance." in the footer of every PDF, preceded by the year (never a full date), and the same note in the metadata of MP3, MIDI, MusicXML and PDF. The music itself does not come from the AI: the notes follow the source, the sound is software synthesis, and the AI helps to read, proofread and run the tools. Compare the notes and the music with the source before use. The label follows the European Commission's icons for labelling AI-generated content (see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)).
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="img/ai-basic-dark.svg"><img src="img/ai-basic.svg" alt="AI" height="18" align="absmiddle"></picture> 2026 Created with AI assistance. [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0).
 
