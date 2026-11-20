@@ -1,10 +1,10 @@
 <p><a href="https://practice-duck-plugin.pages.dev/de/"><img src="img/logo.png" alt="practice-duck Logo" width="72" height="72"></a></p>
 
-# practice-duck
-
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="img/header-dark.png"><img src="img/header.png" alt="Ein Mann mit Kopfhörern steht in einer alten Badewanne und singt vom Notenblatt, neben ihm schwimmt eine Quietscheente" width="100%"></picture></p>
+# Practice Duck
 
 [English](README.md) | Deutsch
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="img/header-dark.png"><img src="img/header.png" alt="Ein Mann mit Kopfhörern steht in einer alten Badewanne und singt vom Notenblatt, neben ihm schwimmt eine Quietscheente" width="100%"></picture></p>
 
 ## Eine Partitur. Übematerial für jede Stimme.
 
