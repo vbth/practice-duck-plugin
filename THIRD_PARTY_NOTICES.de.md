@@ -51,4 +51,4 @@ Die Pakete enthalten den gesetzten Notentext, Audio und Dokumente, die aus der V
 
 ## Lizenz des Skills selbst
 
-PolyForm Noncommercial License 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`, siehe `LICENSE.md`, unveränderter offizieller Text): frei für jeden nichtkommerziellen Zweck (privat, Hobby, gemeinnützig, Bildung, öffentliche Stellen); kommerzielle Nutzung braucht eine eigene Lizenz des Autors. Ein Autorenname wird bewusst nicht genannt, daher gibt es keine Zeile `Required Notice`. Die Lizenzen der oben genannten enthaltenen Bestandteile bleiben wie angegeben und werden durch diese Lizenz nicht verändert.
+PolyForm Noncommercial License 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`, siehe `LICENSE.md`, unveränderter offizieller Text): frei für jeden nichtkommerziellen Zweck (privat, Hobby, gemeinnützig, Bildung, öffentliche Stellen); kommerzielle Nutzung braucht eine eigene Lizenz des Autors. Die Lizenzen der oben genannten enthaltenen Bestandteile bleiben wie angegeben und werden durch diese Lizenz nicht verändert.
