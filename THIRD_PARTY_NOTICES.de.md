@@ -1,0 +1,54 @@
+# Hinweise zu Komponenten Dritter
+
+Deutsche Übersetzung von [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). Maßgeblich ist die englische Fassung; Zitate aus Lizenzen und Quellen stehen im Original.
+
+Geprüft am 26.10.2026 und 29.10.2026 (die pip-Pakete am 04.11.2026 erneut, anhand der Paket-Metadaten bei den festgelegten Versionen; die übrigen Einträge wurden dabei nicht erneut geprüft) anhand der unten genannten Quellen (Zusammenfassungen, keine Rechtsberatung). Einträge mit **bestätigt** wurden im Lizenztext, in der Copyright-Datei des Pakets oder auf der offiziellen Seite gelesen; **zu prüfen** hieße nicht verifiziert (derzeit ist kein Eintrag so markiert).
+
+## Im Skill enthalten
+
+| Komponente | Ablageort | Lizenz | Status |
+|---|---|---|---|
+| IBM Plex Sans, Plex Sans Condensed (Schriften) | `assets/fonts/` | SIL Open Font License 1.1, Copyright © 2017 IBM Corp., Reserved Font Name "Plex". Verwendung, Einbettung in PDFs und in Start.html (Base64, Regular und Bold, unverändert) sowie Weitergabe sind erlaubt; die Schriften dürfen nicht allein verkauft werden, der Hinweis ist beizubehalten, der Name "Plex" darf für veränderte Schriften nicht verwendet werden. | **bestätigt** (`assets/fonts/OFL-IBMPlexSans.txt`) |
+| EU-Labels, vollständiger offizieller Satz (12 SVG: "AI", "AI GENERATED", "AI MODIFIED", jeweils schwarz und weiß, jeweils auch zu 50 % transparent): vom Eigentümer am 29.10.2026 bereitgestellte Dateien, Inhalt unverändert, Leerzeichen in den Dateinamen durch Unterstriche ersetzt | `assets/eu-labels/` | Europäische Kommission, [EU icons for labelling AI-generated content](https://digital-strategy.ec.europa.eu/en/policies/eu-icons-labelling-ai-generated-content) (Seite vom 24.09.2026): "made publicly available for everyone to use freely", "without the need for attribution". Die Verwendung ist freiwillig und belegt allein nicht die Einhaltung von Artikel 50 der KI-Verordnung. Wer den Verhaltenskodex nicht unterzeichnet hat, darf nicht den Eindruck erwecken, ihn einzuhalten. | **bestätigt** für die freie Verwendung ohne Namensnennung (Seitentext, wie am 26.10.2026 festgehalten; die Seite ließ sich am 29.10.2026 nicht erneut abrufen) |
+| Arbeitskopien der schwarzen Labels: viewBox auf das Label zugeschnitten, Stile eingebettet, Formen unverändert (Pfade identisch mit den offiziellen Dateien, geprüft). "AI" ist das Label, das überall verwendet wird: in jeder PDF- und Markdown-Fußzeile, im Albumcover und in der Fußzeile der Website; "AI GENERATED" nur im Kopfbild der Website | `assets/eu-ai-basic.svg`, `assets/eu-ai-generated.svg`, `assets/eu-ai-modified.svg` (nicht verwendet, für eine andere Regelung aufbewahrt) | wie oben; nur Zuschnitt und Einbettung | **bestätigt** |
+| GitHub-Mark (Projektzeile in jeder PDF- und Markdown-Fußzeile, verlinkt auf das Repository): Pfaddaten des Octicons-Symbols `mark-github`, einfarbig schwarz | `assets/github-mark.svg` | Octicons: MIT, "Copyright (c) 2026 GitHub Inc." ([LICENSE](https://github.com/primer/octicons/blob/main/LICENSE); die README: "Code License: MIT, applies to all other files", "When using the GitHub logos, be sure to follow the GitHub logo guidelines"). [GitHub-Logo-Richtlinien](https://brand.github.com/foundations/logo): Mit einem zulässigen Logo auf GitHub oder ein Projekt auf GitHub zu verlinken ist erlaubt; verboten sind die Verwendung als eigenes Logo, das Erwecken des Eindrucks einer Billigung und Veränderungen (Farbe, Maße); erlaubte Farben sind Weiß und Schwarz. Der Skill verwendet das Mark unverändert (gleiche Pfaddaten, proportional skaliert, schwarz oder weiß), kleiner als der Projektname und neben ihm, nur um auf das Repository zu verlinken. | **bestätigt** (LICENSE, README und Richtlinienseite am 29.10.2026 gelesen) |
+| GeneralUser GS 2.0.3 BETA (Soundfont, optionaler Klang der Übe-Audios: `make_audio.py --soundfont generaluser`) | `assets/soundfonts/GeneralUser-GS.sf3`; Lizenztext in `assets/soundfonts/GeneralUser-GS-LICENSE.txt` | GeneralUser GS License v2.0, Text in der Datei selbst gelesen (Feld ICMT): Das gesamte Werk darf "without restriction for your own music creation, private or commercial" verwendet werden; es wird kostenlos bereitgestellt und darf verändert werden, auch seine Verpackung. Die enthaltenen Samples behalten ihre eigenen Nutzungsrechte, die die volle Verwendung in der Musikproduktion erlauben; der Autor kann nicht zu 100 % sicher sein, woher alle Samples stammen. Autor S. Christian Collins, © 1997-2025. **Originalquelle:** [schristiancollins.com/generaluser.php](https://www.schristiancollins.com/generaluser.php), Repository [mrbumpy409/GeneralUser-GS](https://github.com/mrbumpy409/GeneralUser-GS); der Autor bittet darum, nicht direkt auf seine Download-Dateien zu verlinken. **Hier vorgenommene Änderung:** Die ursprüngliche `GeneralUser-GS.sf2` (32,3 MB) wurde mit `sf3convert -z` (Debian-Paket `sf3convert`, einmalig verwendet, nicht zur Laufzeit) in das komprimierte SF3-Format (Ogg Vorbis, verlustbehaftet) mit 7,1 MB umgewandelt, damit der Skill in die Upload-Grenze passt; Presets, Zonen, Lizenztext, Autor und Copyright sind unverändert, nur die Formatversion und das Software-Feld des Headers unterscheiden sich (mit dem Original verglichen). | **bestätigt** (Lizenztext in der Datei gelesen; der Autor prüft nicht die Herkunft jedes einzelnen Samples) |
+
+## Nur im Repository (Bilder der Website und der README, nicht Teil der `.plugin`-Datei)
+
+| Komponente | Ablageort | Lizenz | Status |
+|---|---|---|---|
+| IBM Plex Sans, Sans Condensed (Schriften der Website, WOFF2, selbst gehostet, keine Anfrage an Google) | `docs/fonts/` | SIL Open Font License 1.1, Copyright © 2017 IBM Corp., Reserved Font Name "Plex"; Lizenztext in `docs/fonts/OFL-IBMPlexSans.txt`; WOFF2-Dateien aus dem npm-Paket `@fontsource/ibm-plex-sans` | **bestätigt** (`docs/fonts/OFL-IBMPlexSans.txt`) |
+| Kopien der EU-Labels für die Fußzeile der Website und die Fußzeilen der READMEs: `ai-basic.svg` (schwarz, aus der Arbeitskopie oben) und `ai-basic-dark.svg` (weiß, aus der offiziellen weißen Datei in `assets/eu-labels/` erstellt, gleicher Zuschnitt, Stile eingebettet) | `docs/img/` | wie oben | **bestätigt** |
+| Kopien des GitHub-Marks für die Markdown-Fußzeilen: `github-mark.svg` (schwarz) und `github-mark-dark.svg` (weiß), aus dem Skill-Asset oben erstellt | `docs/img/` | wie oben | **bestätigt** |
+
+
+## Zur Laufzeit verwendet (von `scripts/setup.sh` installiert, nicht enthalten)
+
+| Komponente | Verwendung | Lizenz | Status |
+|---|---|---|---|
+| Verovio 6.4.0 | Notensatz | LGPL-3.0 ([Lizenzseite](https://book.verovio.org/introduction/licensing.html)). **Bedingung: sichtbare Nennung von Verovio** – die README jedes Pakets sagt "engraved with Verovio (verovio.org)". Änderungen an Verovio selbst müssten unter LGPL-3.0 veröffentlicht werden; der Skill verändert es nicht. | **bestätigt** |
+| Leland (Musikschrift in Verovio) | Notenzeichen in den Noten-PDFs | SIL Open Font License 1.1 ([Upstream](https://github.com/gameleaf/Leland)); die Einbettung in PDFs ist erlaubt | **bestätigt** (Upstream-Seite); Rechteinhaber dort nicht genannt |
+| MuseScore General (Soundfont) | Klang der Übe-Audios | MIT, Teile gemeinfrei oder CC0 (Debian-Copyright-Datei des Pakets `musescore-general-soundfont`); die Soundfont ist eine Sample-Bank, das Programm MuseScore wird nicht verwendet | **bestätigt** (Copyright-Datei des Pakets); das damit gerenderte Audio ist keine Kopie der Soundfont |
+| FluidR3_GM (Ersatz-Soundfont) | wie oben | MIT, Copyright © 2000-2002, 2008 Frank Wen (Debian-Copyright-Datei von `fluid-soundfont-gm`) | **bestätigt** |
+| CairoSVG 2.9.1 | SVG zu PDF | LGPL-3.0-or-later | **bestätigt** (Paket-Metadaten) |
+| lxml 6.1.3, pypdf 6.21.4 | XML, PDF | BSD-3-Clause | **bestätigt** (Paket-Metadaten) |
+| mido 1.3.3 | MIDI | MIT | **bestätigt** (Paket-Metadaten) |
+| ReportLab 5.1.0 | PDF-Dokumente | BSD | **bestätigt** (Paket-Metadaten) |
+| Pillow 13.0.0 | Bilder | MIT-CMU | **bestätigt** (Paket-Metadaten) |
+| NumPy 2.5.4 | Audioanalyse | BSD-3-Clause und weitere (0BSD, MIT, Zlib, CC0) | **bestätigt** (Paket-Metadaten) |
+| SciPy 1.18.1 | Signalverarbeitung | BSD-artig | **bestätigt** (Paket-Metadaten, Lizenztext nicht gelesen) |
+| poppler-utils (`pdftoppm`) | PDF-Seiten zu Bildern | GPL-2 oder GPL-3 für die Kernbibliothek, die eigenen Beiträge von Poppler GPL-2-or-later (Copyright-Datei des Debian-Pakets `poppler-utils` 24.02.0, am 29.10.2026 gelesen) | **bestätigt** |
+| fonts-dejavu-core (DejaVu Sans) | nur für die Debug-Bilder von `preflight.py`; in keinem Paket enthalten | Bitstream-Vera-Lizenz (Copyright-Datei von `fonts-dejavu-core` 2.37, am 29.10.2026 gelesen): Verwendung, Kopieren und Weitergabe sind erlaubt, der Hinweis ist beizubehalten, veränderte Schriften müssen umbenannt werden, die Schriften dürfen nicht allein verkauft werden; die eigenen Änderungen von DejaVu sind gemeinfrei | **bestätigt** |
+| FluidSynth 2.3 | MIDI zu Audio | LGPL-2.1 (Upstream-[LICENSE](https://github.com/FluidSynth/fluidsynth/blob/v2.3.0/LICENSE) am Tag v2.3.0, "Version 2.1, February 1999", am 29.10.2026 gelesen) | **bestätigt** |
+| FFmpeg (mit LAME) | Audiomischung, MP3-Kodierung | Der hier verwendete Build ist GPL-fähig (`--enable-gpl`, libmp3lame); gilt für die Programme, nicht für damit erzeugte Dateien | **bestätigt**: Debian-Copyright-Datei von `ffmpeg` 6.1.1 (am 29.10.2026 gelesen): Die Standard-Binärdateien von Debian stehen unter GPL-2-or-later, weil GPL-Teile eingebaut sind; `libmp3lame0` (LAME) steht unter LGPL-2-or-later. Pflichten (Quellcode-Angebot) entstehen nur für Personen, die diese Programme weitergeben, nicht für den Skill, der keines davon mitliefert |
+
+Keine der Laufzeitkomponenten wird im Skill oder in einem Paket mitgeliefert. Deren Lizenzen begründen daher für Nutzende des Skills keine Pflichten über die Nennung von Verovio hinaus; sie sind nur relevant, wenn jemand diese Programme weitergibt.
+
+## Ergebnis des Skills
+
+Die Pakete enthalten den gesetzten Notentext, Audio und Dokumente, die aus der Vorlage der nutzenden Person abgeleitet sind. Die Rechte an Musik, Text und Vorlage bleiben bei den Rechteinhabenden. Der Skill räumt keine Rechte ein und gibt keine Rechtsberatung (siehe den Abschnitt "Rechte" in der README jedes Pakets).
+
+## Lizenz des Skills selbst
+
+PolyForm Noncommercial License 1.0.0 (SPDX `PolyForm-Noncommercial-1.0.0`, siehe `LICENSE.md`, unveränderter offizieller Text): frei für jeden nichtkommerziellen Zweck (privat, Hobby, gemeinnützig, Bildung, öffentliche Stellen); kommerzielle Nutzung braucht eine eigene Lizenz des Autors. Ein Autorenname wird bewusst nicht genannt, daher gibt es keine Zeile `Required Notice`. Die Lizenzen der oben genannten enthaltenen Bestandteile bleiben wie angegeben und werden durch diese Lizenz nicht verändert.
