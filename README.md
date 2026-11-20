@@ -35,7 +35,7 @@ One ZIP with
 
 The exact structure of the ZIP is shown in section [G](#g-result-what-comes-out).
 
-**Choir and instruments.** The same route serves mixed choirs, other vocal ensembles and instrument pieces: string quartet, woodwind quintet, brass quintet, a solo singer or solo instrument with piano, or your own ensemble. Transposing instruments (clarinet in B♭, horn in F and others) are printed in written pitch, the recordings sound at concert pitch. A printed piano or organ accompaniment is carried along and drafted from the parts if the score has none. A piece for instruments is delivered as `Instrument_Practice_<Title>`, a choir piece as `Practice_<Title>`.
+**Choir and instruments.** The same route serves mixed choirs, other vocal ensembles and instrument pieces: string quartet, woodwind quintet, brass quintet, a solo singer or solo instrument with piano, or your own ensemble. Transposing instruments (clarinet in B♭, horn in F and others) are printed in written pitch, the recordings sound at concert pitch. A printed piano or organ accompaniment is carried along and drafted from the parts if the score has none. Every piece, choir or instruments, is delivered as `Practice_<Title>`.
 
 **The skills of the plugin**
 
@@ -223,7 +223,7 @@ Each part gets its **own mix**. The own part is always centred, and the other pa
 - The AI agent does not hear the audio; it is tested technically (duration against the MIDI, gaps, clipping, loudness, stereo). Sound and taste are not judged.
 - Accidentals and rhythm are read from image crops and proofread twice, not measured. Signs and arcs are read from the crops as well; the automatic check compares two readings and cannot find a sign that was misread the same way twice. Cue notes, tremolo, arpeggio and similar signs are reported but not transcribed. Tuplets, grace notes, chord symbols, rehearsal marks, clef changes and tempo changes (rit., accel., new metronome marks) are transcribed (chord symbols and rehearsal marks are printed, the audio does not use them); the audio follows tempo changes and, on request, articulation (breath marks, staccato, tenuto, accents, syllable gaps, ornaments) only as far as they were approved.
 - Repeats, endings and playback order are tested on small trial scores only; spot-check real pieces. D.C./D.S./coda are not engraved as signs.
-- DIN A4 only. US Letter is currently not supported.
+- DIN A4 by default; US Letter can be set with `package.paper`.
 
 ### Scan quality
 The page check aborts below a staff space of 8 px and warns below 12 px. It was tried on drawn test pages only, not on real scans, so the limits are not calibrated and very blurred, tilted or noisy photos may be rejected.

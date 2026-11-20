@@ -35,7 +35,7 @@ Ein ZIP mit
 
 Den genauen Aufbau des ZIPs zeigt Abschnitt [G](#g-ergebnis-was-kommt-heraus).
 
-**Chor und Instrumente.** Derselbe Weg gilt für gemischte Chöre, andere Vokalensembles und Instrumentalstücke: Streichquartett, Holzbläserquintett, Blechbläserquintett, Solostimme oder Soloinstrument mit Klavier oder ein eigenes Ensemble. Transponierende Instrumente (Klarinette in B, Horn in F und andere) stehen in notierter Tonhöhe im Notenbild, die Aufnahmen klingen in klingender Tonhöhe. Eine gedruckte Klavier- oder Orgelbegleitung wird mitgenommen und, wenn die Partitur keine hat, aus den Stimmen entworfen. Ein Instrumentalstück kommt als `Instrument_Uebungen_<Titel>`, ein Chorstück als `Uebungen_<Titel>`.
+**Chor und Instrumente.** Derselbe Weg gilt für gemischte Chöre, andere Vokalensembles und Instrumentalstücke: Streichquartett, Holzbläserquintett, Blechbläserquintett, Solostimme oder Soloinstrument mit Klavier oder ein eigenes Ensemble. Transponierende Instrumente (Klarinette in B, Horn in F und andere) stehen in notierter Tonhöhe im Notenbild, die Aufnahmen klingen in klingender Tonhöhe. Eine gedruckte Klavier- oder Orgelbegleitung wird mitgenommen und, wenn die Partitur keine hat, aus den Stimmen entworfen. Jedes Stück, ob Chor oder Instrumente, kommt als `Uebungen_<Titel>`.
 
 **Die Skills des Plugins**
 
@@ -223,7 +223,7 @@ Jede Stimme bekommt ihren **eigenen Mix**. Die eigene Stimme liegt immer in der 
 - Der KI-Agent hört das Audio nicht; es wird technisch geprüft (Dauer gegen das MIDI, Lücken, Übersteuerung, Lautstärke, Stereo). Klang und Geschmack werden nicht beurteilt.
 - Vorzeichen und Rhythmus werden aus Bildausschnitten gelesen und zweimal korrigiert, nicht gemessen. Auch Zeichen und Bögen werden aus den Ausschnitten gelesen; der automatische Vergleich prüft zwei Lesarten gegeneinander und findet kein Zeichen, das zweimal gleich falsch gelesen wurde. Stichnoten, Tremolo, Arpeggio und ähnliche Zeichen werden gemeldet, aber nicht umgesetzt. Tolen (Triolen, Quintolen …), Vorschlagsnoten, Akkordsymbole und Studierbuchstaben (gedruckt, das Audio nutzt sie nicht), Schlüsselwechsel und Tempowechsel (rit., accel., neue Metronomangaben) werden umgesetzt; das Audio folgt Tempowechseln und auf Wunsch der Artikulation (Atemzeichen, Staccato, Tenuto, Akzente, Silbenlücken, Verzierungen) nur so weit, wie sie bestätigt wurden.
 - Wiederholungen, Klammern und Spielreihenfolge sind nur mit kleinen Testnoten erprobt; echte Stücke stichprobenartig prüfen. D.C./D.S./Coda werden nicht als Zeichen gesetzt.
-- Nur DIN A4. US Letter wird aktuell nicht unterstützt.
+- Standard ist DIN A4; US Letter lässt sich mit `package.paper` einstellen.
 
 ### Scanqualität
 Die Seitenprüfung bricht unter 8 px Notenlinienabstand ab und warnt unter 12 px. Sie wurde nur an gezeichneten Testseiten erprobt, nicht an echten Scans; die Grenzen sind daher nicht kalibriert, und stark unscharfe, schräge oder verrauschte Fotos können abgelehnt werden.
