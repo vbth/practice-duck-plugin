@@ -2,9 +2,9 @@
 
 # Practice Duck
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="img/header-dark.png"><img src="img/header.png" alt="Ein Mann mit Kopfhörern steht in einer alten Badewanne und singt vom Notenblatt, neben ihm schwimmt eine Quietscheente" width="100%"></picture></p>
-
 [English](README.md) | Deutsch
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="img/header-dark.png"><img src="img/header.png" alt="Ein Mann mit Kopfhörern steht in einer alten Badewanne und singt vom Notenblatt, neben ihm schwimmt eine Quietscheente" width="100%"></picture></p>
 
 ## Eine Partitur. Übematerial für jede Stimme.
 
