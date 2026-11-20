@@ -14,18 +14,18 @@ Das Projekt dokumentiert einen KI-Musik-Workflow als Claude-Plugin. Aus der Part
 
 **Inhalt**
 
-[A. Überblick: Was macht der Skill?](#a-überblick-was-macht-der-skill)<br>
+[A. Überblick: Was macht das Plugin?](#a-überblick-was-macht-das-plugin)<br>
 [B. Start: Wie legst du los?](#b-start-wie-legst-du-los)<br>
 [C. Voraussetzungen: Was wird benötigt?](#c-voraussetzungen-was-wird-benötigt)<br>
-[D. Rechte: Was fragt der Skill ab?](#d-rechte-was-fragt-der-skill-ab)<br>
+[D. Rechte: Was fragt das Plugin ab?](#d-rechte-was-fragt-das-plugin-ab)<br>
 [E. Ablauf: Welche Schritte gibt es?](#e-ablauf-welche-schritte-gibt-es)<br>
 [F. Spielraum: Ist der Ablauf verbindlich?](#f-spielraum-ist-der-ablauf-verbindlich)<br>
 [G. Ergebnis: Was kommt heraus?](#g-ergebnis-was-kommt-heraus)<br>
 [H. Audio-Mix: Wie werden die Aufnahmen gemischt?](#h-audio-mix-wie-werden-die-aufnahmen-gemischt)<br>
-[I. Grenzen: Was kann er nicht?](#i-grenzen-was-kann-er-nicht)<br>
+[I. Grenzen: Was kann es nicht?](#i-grenzen-was-kann-es-nicht)<br>
 [J. KI-Kennzeichnung: Wie werden KI-Inhalte markiert?](#j-ki-kennzeichnung-wie-werden-ki-inhalte-markiert)
 
-## A. Überblick: Was macht der Skill?
+## A. Überblick: Was macht das Plugin?
 
 Ein ZIP mit
 - Übe-Audio (MP3) und MIDI je Stimme: allein, mit Begleitung, im Chor oder Ensemble, plus Tutti; in Chor- oder Ensembleklang und in Klavierklang; normal und verlangsamt
@@ -35,7 +35,7 @@ Ein ZIP mit
 
 Den genauen Aufbau des ZIPs zeigt Abschnitt [G](#g-ergebnis-was-kommt-heraus).
 
-**Chor und Instrumente.** Derselbe Weg gilt für gemischte Chöre, andere Vokalensembles und Instrumentalstücke: Streichquartett, Holzbläserquintett, Blechbläserquintett, Solostimme oder Soloinstrument mit Klavier oder ein eigenes Ensemble. Transponierende Instrumente (Klarinette in B, Horn in F und andere) stehen in notierter Tonhöhe im Notenbild, die Aufnahmen klingen in klingender Tonhöhe. Eine gedruckte Klavier- oder Orgelbegleitung wird mitgenommen und, wenn die Partitur keine hat, aus den Stimmen entworfen. Ein Instrumentalstück kommt als `Instrument_Uebungen_<Titel>`, ein Chorstück als `Uebungen_<Titel>`.
+**Chor und Instrumente.** Derselbe Weg gilt für gemischte Chöre, andere Vokalensembles und Instrumentalstücke: Streichquartett, Holzbläserquintett, Blechbläserquintett, Solostimme oder Soloinstrument mit Klavier oder ein eigenes Ensemble. Transponierende Instrumente (Klarinette in B, Horn in F und andere) stehen in notierter Tonhöhe im Notenbild, die Aufnahmen klingen in klingender Tonhöhe. Eine gedruckte Klavier- oder Orgelbegleitung wird mitgenommen und, wenn die Partitur keine hat, aus den Stimmen entworfen. Jedes Stück, ob Chor oder Instrumente, kommt als `Uebungen_<Titel>`.
 
 **Die Skills des Plugins**
 
@@ -62,15 +62,15 @@ Den genauen Aufbau des ZIPs zeigt Abschnitt [G](#g-ergebnis-was-kommt-heraus).
 5. Beantworte die Rückfragen: zuerst die Rechte (Stopp A), dann Titel, Melodiestimme, Aufstellung, Tempo und Layouts (Stopp B).
 6. Lade das fertige ZIP herunter, entpacke es und öffne `Start.html`.
 
-Voraussetzungen und Rechte: [C](#c-voraussetzungen-was-wird-benötigt) und [D](#d-rechte-was-fragt-der-skill-ab). Die Schritte im Einzelnen: [E](#e-ablauf-welche-schritte-gibt-es).
+Voraussetzungen und Rechte: [C](#c-voraussetzungen-was-wird-benötigt) und [D](#d-rechte-was-fragt-das-plugin-ab). Die Schritte im Einzelnen: [E](#e-ablauf-welche-schritte-gibt-es).
 
 ## C. Voraussetzungen: Was wird benötigt?
-Python mit den Paketen, die das Plugin auflistet, FluidSynth, ffmpeg, poppler und eine Soundfont (ein Ersatz wird verwendet und gemeldet). Zu Beginn prüft der Skill die Installation. Fehlt etwas oder weicht etwas ab, listet er auf, was er installieren würde, und fragt: die **getesteten Versionen** (empfohlen) oder die **neuesten Versionen**. Die verwendeten Versionen stehen im Prüfprotokoll; neueste Versionen sind als nicht getestet gekennzeichnet.
+Python mit den Paketen, die das Plugin auflistet, FluidSynth, ffmpeg, poppler und eine Soundfont (ein Ersatz wird verwendet und gemeldet). Zu Beginn prüft das Plugin die Installation. Fehlt etwas oder weicht etwas ab, listet es auf, was es installieren würde, und fragt: die **getesteten Versionen** (empfohlen) oder die **neuesten Versionen**. Die verwendeten Versionen stehen im Prüfprotokoll; neueste Versionen sind als nicht getestet gekennzeichnet.
 
-**Klang.** Das Audio wird mit einer Soundfont gerendert: MuseScore General (vom Skill `setup` installiert, der Standard) oder auf Wunsch **GeneralUser GS 2.0.3 (Beta)**, der im Plugin enthalten ist. GeneralUser GS stammt von S. Christian Collins ([Originalquelle](https://www.schristiancollins.com/generaluser.php), [Repository](https://github.com/mrbumpy409/GeneralUser-GS)) und darf nach seiner eigenen Lizenz für private und kommerzielle Musikproduktion genutzt werden. Wegen der Upload-Grenze liegt er im Skill **komprimiert im SF3-Format** vor (Ogg Vorbis, 7 MB statt 32 MB, verlustbehaftet); Presets und Lizenztext sind unverändert. Einzelheiten in [`THIRD_PARTY_NOTICES.de.md`](THIRD_PARTY_NOTICES.de.md).
+**Klang.** Das Audio wird mit einer Soundfont gerendert: MuseScore General (vom Skill `setup` installiert, der Standard) oder auf Wunsch **GeneralUser GS 2.0.3 (Beta)**, der im Plugin enthalten ist. GeneralUser GS stammt von S. Christian Collins ([Originalquelle](https://www.schristiancollins.com/generaluser.php), [Repository](https://github.com/mrbumpy409/GeneralUser-GS)) und darf nach seiner eigenen Lizenz für private und kommerzielle Musikproduktion genutzt werden. Wegen der Upload-Grenze liegt er im Plugin **komprimiert im SF3-Format** vor (Ogg Vorbis, 7 MB statt 32 MB, verlustbehaftet); Presets und Lizenztext sind unverändert. Einzelheiten in [`THIRD_PARTY_NOTICES.de.md`](THIRD_PARTY_NOTICES.de.md).
 
-## D. Rechte: Was fragt der Skill ab?
-Der Skill fragt vor der Verarbeitung, ob die Noten **gemeinfrei, lizenziert, eigenes Werk oder unklar** sind, und vermerkt die Antwort in der README des Pakets. Er gibt keine Rechtsberatung, prüft die Antwort nicht und räumt keine Rechte ein. Ob die Noten verarbeitet und weitergegeben werden dürfen, richtet sich nach Urheberrecht und Lizenz der Noten; die Verantwortung liegt bei den Nutzenden. Die Lizenz des Plugins ([`LICENSE.md`](LICENSE.md)) sagt nichts über die Rechte an den Noten.
+## D. Rechte: Was fragt das Plugin ab?
+Das Plugin fragt vor der Verarbeitung, ob die Noten **gemeinfrei, lizenziert, eigenes Werk oder unklar** sind, und vermerkt die Antwort in der README des Pakets. Es gibt keine Rechtsberatung, prüft die Antwort nicht und räumt keine Rechte ein. Ob die Noten verarbeitet und weitergegeben werden dürfen, richtet sich nach Urheberrecht und Lizenz der Noten; die Verantwortung liegt bei den Nutzenden. Die Lizenz des Plugins ([`LICENSE.md`](LICENSE.md)) sagt nichts über die Rechte an den Noten.
 
 ## E. Ablauf: Welche Schritte gibt es?
 ```mermaid
@@ -85,9 +85,9 @@ flowchart TD
     P4 --> P5["8. Endgültiger Notensatz"]
     P5 --> P6["9. Audio und Audiotest"]
     P6 --> P7["10. Dokumentation, Selbstprüfung, Paket"]
-    P7 --> P8{{"11. Abschluss: Vorschläge zur Verbesserung des Skills, wenn nützlich"}}
+    P7 --> P8{{"11. Abschluss: Vorschläge zur Verbesserung des Plugins, wenn nützlich"}}
     P8 --> U2(["12. Herunterladen, entpacken, prüfen, dem Chor oder Ensemble die Stimmen-ZIPs teilen"])
-    P8 -.->|verbesserter Skill| U1
+    P8 -.->|verbessertes Plugin| U1
     style U1 fill:#fff,stroke:#000,stroke-width:2px
     style U3 fill:#fff,stroke:#000,stroke-width:2px
     style U2 fill:#fff,stroke:#000,stroke-width:2px
@@ -112,7 +112,7 @@ Besteht eine Prüfung nicht, behebt der KI-Agent den Fehler und prüft erneut, b
 | 8 | Endgültiger Notensatz | Der KI-Agent setzt die korrigierten Noten in DIN A4 mit Titelblatt und die gewählten Layouts. | Lesbar, Seiten gefüllt, angesehen? |
 | 9 | Audio | Der KI-Agent erzeugt MP3 und MIDI mit Tags und Albumcover und prüft sie technisch (Dauer, Lücken, Übersteuerung, Lautstärke, Stereo). | Alle Dateien da, Stichprobe gemacht? |
 | 10 | Paket | Der KI-Agent schreibt die Dokumente, darunter die Einstellungsdatei (jede Annahme und Entscheidung mit Herkunft: Nutzende, KI-Agent, Datei oder Standard), legt die Startseiten an (`Start.html`, in jedem Stimmenordner mit zwei Playern), prüft sich selbst und packt das ZIP mit den Stimmen-ZIPs. | Paketprüfung besteht, ZIPs getestet? |
-| 11 | Abschluss | Der KI-Agent schlägt Verbesserungen für den Skill vor, wenn nützlich. Die Entscheidung liegt bei den Nutzenden. | keine |
+| 11 | Abschluss | Der KI-Agent schlägt Verbesserungen für das Plugin vor, wenn nützlich. Die Entscheidung liegt bei den Nutzenden. | keine |
 | 12 | Herunterladen | Das ZIP wird heruntergeladen und entpackt, `Start.html` geöffnet und geprüft, die Stimmen-ZIPs gehen an den Chor oder das Ensemble. Die Einstellungsdatei wird aufgehoben, um das Ergebnis zu wiederholen. | keine |
 
 </details>
@@ -120,7 +120,7 @@ Besteht eine Prüfung nicht, behebt der KI-Agent den Fehler und prüft erneut, b
 <details>
 <summary><h3>Notenelemente: was gelesen, geprüft und gesetzt wird</h3></summary>
 
-**Ablauf.** Der KI-Agent liest die Vorlage Takt für Takt und schreibt Tonhöhen, Notenwerte, Text und Zeichen in die Notendaten; daraus entstehen MusicXML, Probedruck und die endgültigen Noten. Die Korrektur läuft dann in vier Durchgängen: Tonhöhen und Rhythmus, Text, Zeichen und Textreihenfolge sowie Zeichen und Bögen. Bei den Zeichen listet der KI-Agent zuerst jedes Zeichen der Vorlage (System für System, Stimme für Stimme, anhand des Katalogs unten) in einer Liste auf; erst danach vergleicht das Plugin diese Liste mit den gebauten Noten und ergänzt Fehlendes. Alles, was der Skill nicht setzen kann, wird als `other` notiert und landet in den offenen Punkten der README; nichts wird stillschweigend weggelassen.
+**Ablauf.** Der KI-Agent liest die Vorlage Takt für Takt und schreibt Tonhöhen, Notenwerte, Text und Zeichen in die Notendaten; daraus entstehen MusicXML, Probedruck und die endgültigen Noten. Die Korrektur läuft dann in vier Durchgängen: Tonhöhen und Rhythmus, Text, Zeichen und Textreihenfolge sowie Zeichen und Bögen. Bei den Zeichen listet der KI-Agent zuerst jedes Zeichen der Vorlage (System für System, Stimme für Stimme, anhand des Katalogs unten) in einer Liste auf; erst danach vergleicht das Plugin diese Liste mit den gebauten Noten und ergänzt Fehlendes. Alles, was das Plugin nicht setzen kann, wird als `other` notiert und landet in den offenen Punkten der README; nichts wird stillschweigend weggelassen.
 
 | Bereich | Gelesen, geprüft und gesetzt | Nur als Text gedruckt | Nicht unterstützt (wird gemeldet) |
 |---|---|---|---|
@@ -138,7 +138,7 @@ Besteht eine Prüfung nicht, behebt der KI-Agent den Fehler und prüft erneut, b
 
 **Was Audio und MIDI befolgen:** Dynamik (Lautstärke), Gabeln und cresc.- bzw. dim.-Wörter (Verläufe), Tempoangaben und Tempowechsel (wie bei Stopp B bestätigt), Wiederholungen, Klammern und die Abspielreihenfolge, Fermaten (die Note wird gehalten), Vorschläge (auf dem Schlag), Verzierungen sowie mit der Option `articulation_audio` Atemzeichen, Zäsuren, Staccato, Tenuto, Akzente und die kleinen Lücken zwischen Silben. Alles andere (Akkordsymbole, Studierbuchstaben, Stimmenangaben, sonstige Wörter) wird nur gedruckt.
 
-Handschriftliche Einträge (Bleistift, Kreise, von Hand ergänzte Atemzeichen) sind nie Musik: Sie werden als offener Punkt gemeldet und nicht übernommen. Besondere Notation (Aleatorik, Cluster, Mikrotöne, graphische Notation, Neumen, Tabulaturen, Generalbassziffern) wird immer gemeldet und nie übertragen; bei Stopp B fragt der Skill, ob ein solches Stück überhaupt erstellt werden soll. Das Prüfprotokoll listet die Durchgänge und ihre Befunde.
+Handschriftliche Einträge (Bleistift, Kreise, von Hand ergänzte Atemzeichen) sind nie Musik: Sie werden als offener Punkt gemeldet und nicht übernommen. Besondere Notation (Aleatorik, Cluster, Mikrotöne, graphische Notation, Neumen, Tabulaturen, Generalbassziffern) wird immer gemeldet und nie übertragen; bei Stopp B fragt das Plugin, ob ein solches Stück überhaupt erstellt werden soll. Das Prüfprotokoll listet die Durchgänge und ihre Befunde.
 
 </details>
 
@@ -190,7 +190,7 @@ Uebungen_<Titel>/
 │  └─ 4_Session_Handoff_<Titel>.md
 └─ 4_Werkzeuge/
    ├─ 1_Projektdaten_<Titel>/                 (die Datendateien des Stücks)
-   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice_duck.plugin)
+   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice-duck.plugin)
 ```
 
 </details>
@@ -198,7 +198,7 @@ Uebungen_<Titel>/
 <details>
 <summary>Layouts: was bei Stopp B zur Wahl steht</summary>
 
-Layouts entstehen auf Wunsch, nichts davon automatisch. Bei Stopp B stehen vier Dinge zur Wahl, frei kombinierbar: der **Blattaufbau** (Gesamtpartitur wie in der Quelle mit deren Anzahl Stimmen je System oder ein Blatt je Stimme), die **Stimmenmarkierung** (keine, eigene Stimme farbig oder eigene Stimme schwarz mit den anderen hellgrau, in der Gesamtpartitur) und die **Strophenführung** bei mehreren Strophen (keine, dünne Linie oder graue Fläche; die Strophennummer steht an jedem Systemanfang) und für die Stimmenblätter die **Einsatzhilfen** (keine, Mehrtaktpausen mit Taktzahl oder zusätzlich kleine Stichnoten einer anderen Stimme vor dem Einsatz). Jede Kombination ist ein nummeriertes PDF (1 bis 12, die Nummer steht in der Fußzeile); die Stimmenordner bekommen ihre eigenen, der Ordner der Chorleitung alle. Das Beispielpaket zeigt jedes Layout.
+Layouts entstehen auf Wunsch, nichts davon automatisch. Bei Stopp B stehen vier Dinge zur Wahl, frei kombinierbar: der **Blattaufbau** (Gesamtpartitur wie in der Quelle mit deren Anzahl Stimmen je System oder ein Blatt je Stimme), die **Stimmenmarkierung** (keine, eigene Stimme farbig oder eigene Stimme schwarz mit den anderen hellgrau, in der Gesamtpartitur) und die **Strophenführung** bei mehreren Strophen (keine, dünne Linie oder graue Fläche; die Strophennummer steht an jedem Systemanfang) und für die Stimmenblätter die **Einsatzhilfen** (keine, Mehrtaktpausen mit Taktzahl oder zusätzlich kleine Stichnoten einer anderen Stimme vor dem Einsatz). Jede Kombination ist ein nummeriertes PDF (1 bis 12, die Nummer steht in der Fußzeile); die Stimmenordner bekommen ihre eigenen, der Ordner der Chorleitung alle. Das Beispielpaket zeigt jedes Layout. Ein Stück ohne Text (meist ein Instrumentalstück) bekommt nur die Layouts ohne Strophenführung, weil eine Linie oder Fläche dort nichts ändern würde, und die Ordnernamen lassen die Strophenführung weg; ein Stück mit Text kann alle zwölf haben.
 
 **Anpassungen.** Liegt eine Stimme außerhalb ihres üblichen Umfangs, schlägt der KI-Agent vor, das ganze Stück um eine Anzahl Halbtöne zu transponieren (Noten, Vorzeichen, Akkordsymbole und Audio folgen). Ein zweistimmiges Stück lässt sich durch Oktavverdopplung für vier Stimmen aufbereiten: Tenor und Bass singen die obere und die untere Linie eine Oktave tiefer; es kommen weder Noten noch Harmonien hinzu. Beides wird nach der Korrektur angewendet, die Vorlage bleibt als eigene Kopie erhalten, die README nennt die Änderung. Bei einer Lizenz oder Erlaubnis muss die Erlaubnis eine Bearbeitung abdecken.
 
@@ -215,21 +215,21 @@ Jede Stimme bekommt ihren **eigenen Mix**. Die eigene Stimme liegt immer in der 
 - **Mit Begleitung:** eigene Stimme, Melodie −4 dB, Klavierbegleitung aller Stimmen −12 dB.
 - **Im Chor** (Instrumentalstücke: **im Ensemble**): Nachbarn links und rechts −7 dB; eine Stimme am Rand der Sitzordnung bekommt zusätzlich die übernächste Stimme auf ihrer freien Seite mit −9 dB; die übrigen −12 dB.
 - **Tutti:** alle Stimmen gleich laut.
-- Jede Aufnahme beginnt mit dem Anfangston der Stimme, danach eine kurze Pause. Allein und mit Begleitung gibt es auch langsamer (Standard 75 % Tempo, einstellbar).
+- Jede Aufnahme beginnt mit dem Anfangston der Stimme, danach eine kurze Pause (im Instrument der Stimme; in den Tutti-Dateien folgen die Anfangstöne aller Stimmen nacheinander, von tief nach hoch, jeder im eigenen Instrument). Allein und mit Begleitung gibt es auch langsamer (Standard 75 % Tempo, einstellbar).
 - Lautheit −19 LUFS, leichter Raumhall; die MIDI-Dateien tragen dieselben Lautstärke- und Pan-Werte.
 - Die Übersicht, die für jedes Stück erzeugt wird (`2_Ueben/1_Uebersicht.pdf`), zeigt die Mixe (Punktgröße = Pegel, Position = links/rechts).
 
-## I. Grenzen: Was kann er nicht?
+## I. Grenzen: Was kann es nicht?
 - Der KI-Agent hört das Audio nicht; es wird technisch geprüft (Dauer gegen das MIDI, Lücken, Übersteuerung, Lautstärke, Stereo). Klang und Geschmack werden nicht beurteilt.
 - Vorzeichen und Rhythmus werden aus Bildausschnitten gelesen und zweimal korrigiert, nicht gemessen. Auch Zeichen und Bögen werden aus den Ausschnitten gelesen; der automatische Vergleich prüft zwei Lesarten gegeneinander und findet kein Zeichen, das zweimal gleich falsch gelesen wurde. Stichnoten, Tremolo, Arpeggio und ähnliche Zeichen werden gemeldet, aber nicht umgesetzt. Tolen (Triolen, Quintolen …), Vorschlagsnoten, Akkordsymbole und Studierbuchstaben (gedruckt, das Audio nutzt sie nicht), Schlüsselwechsel und Tempowechsel (rit., accel., neue Metronomangaben) werden umgesetzt; das Audio folgt Tempowechseln und auf Wunsch der Artikulation (Atemzeichen, Staccato, Tenuto, Akzente, Silbenlücken, Verzierungen) nur so weit, wie sie bestätigt wurden.
 - Wiederholungen, Klammern und Spielreihenfolge sind nur mit kleinen Testnoten erprobt; echte Stücke stichprobenartig prüfen. D.C./D.S./Coda werden nicht als Zeichen gesetzt.
-- Nur DIN A4. US Letter wird aktuell nicht unterstützt.
+- Standard ist DIN A4; US Letter lässt sich mit `package.paper` einstellen.
 
 ### Scanqualität
 Die Seitenprüfung bricht unter 8 px Notenlinienabstand ab und warnt unter 12 px. Sie wurde nur an gezeichneten Testseiten erprobt, nicht an echten Scans; die Grenzen sind daher nicht kalibriert, und stark unscharfe, schräge oder verrauschte Fotos können abgelehnt werden.
 
 ## J. KI-Kennzeichnung: Wie werden KI-Inhalte markiert?
-Alles, was der Skill erzeugt, ist als mit KI-Unterstützung erstellt gekennzeichnet: das EU-Label „AI“ und der Hinweis „Mit KI-Unterstützung erstellt.“ in der Fußzeile jedes PDFs, davor das Jahr (nie ein volles Datum), derselbe Hinweis in den Metadaten von MP3, MIDI, MusicXML und PDF. Die Musik selbst stammt nicht von der KI: Die Noten folgen der Vorlage, der Klang ist Software-Synthese, und die KI hilft beim Lesen, Korrigieren und Steuern der Werkzeuge. Noten und Musik vor der Nutzung mit der Vorlage vergleichen. Das Label folgt den Symbolen der Europäischen Kommission zur Kennzeichnung KI-generierter Inhalte (siehe [`THIRD_PARTY_NOTICES.de.md`](THIRD_PARTY_NOTICES.de.md)).
+Alles, was das Plugin erzeugt, ist als mit KI-Unterstützung erstellt gekennzeichnet: das EU-Label „AI“ und der Hinweis „Mit KI-Unterstützung erstellt.“ in der Fußzeile jedes PDFs, davor das Jahr (nie ein volles Datum), derselbe Hinweis in den Metadaten von MP3, MIDI, MusicXML und PDF. Die Musik selbst stammt nicht von der KI: Die Noten folgen der Vorlage, der Klang ist Software-Synthese, und die KI hilft beim Lesen, Korrigieren und Steuern der Werkzeuge. Noten und Musik vor der Nutzung mit der Vorlage vergleichen. Das Label folgt den Symbolen der Europäischen Kommission zur Kennzeichnung KI-generierter Inhalte (siehe [`THIRD_PARTY_NOTICES.de.md`](THIRD_PARTY_NOTICES.de.md)).
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="img/ai-basic-dark.svg"><img src="img/ai-basic.svg" alt="AI" height="18" align="absmiddle"></picture> 2026 mit KI-Unterstützung erstellt. [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0).
 
