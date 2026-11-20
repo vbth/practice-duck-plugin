@@ -184,12 +184,13 @@ Uebungen_<Titel>/
 │        └─ Start.html                       (diese Stimme: Aufbau, Layouts, zwei Player: Liste mit Cover, Kopfhörer)
 ├─ 3_Dokumentation/
 │  ├─ 1_README_<Titel>
+│  ├─ <Datum>_Settings_<Titel>.md
 │  ├─ 2_Pruefprotokoll_<Titel>
 │  ├─ 3_Korrekturprotokoll_<Titel>
 │  └─ 4_Session_Handoff_<Titel>.md
 └─ 4_Werkzeuge/
    ├─ 1_Projektdaten_<Titel>/                 (die Datendateien des Stücks)
-   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice_duck.plugin, README.md, session_handoff.md)
+   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice_duck.plugin)
 ```
 
 </details>

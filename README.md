@@ -184,12 +184,13 @@ Practice_<Title>/
 │        └─ Start.html                       (this part: structure, layouts, two players: list with cover, headphones)
 ├─ 3_Documentation/
 │  ├─ 1_README_<Title>
+│  ├─ <date>_Settings_<Title>.md
 │  ├─ 2_Check_Log_<Title>
 │  ├─ 3_Correction_Log_<Title>
 │  └─ 4_Session_Handoff_<Title>.md
 └─ 4_Tools/
    ├─ 1_Project_Data_<Title>/                 (the data files of the piece)
-   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice_duck.plugin, README.md, session_handoff.md)
+   └─ 2_PLUGIN_practice_duck_v<Version>/      (practice_duck.plugin)
 ```
 
 </details>
