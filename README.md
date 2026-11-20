@@ -1,4 +1,8 @@
+<p><img src="assets/logo.png" alt="practice-duck logo" width="72" height="72"></p>
+
 # practice-duck-plugin
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png"><img src="assets/header.png" alt="A man with headphones stands in an old bathtub and sings from a sheet of music, a rubber duck floats beside him" width="100%"></picture></p>
 
 **One score. Practice material for every part.**
 
