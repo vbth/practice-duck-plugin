@@ -1,8 +1,8 @@
-<p><img src="assets/logo.png" alt="practice-duck logo" width="72" height="72"></p>
+<p><img src="img/logo.png" alt="practice-duck logo" width="72" height="72"></p>
 
 # practice-duck-plugin
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.png"><img src="assets/header.png" alt="A man with headphones stands in an old bathtub and sings from a sheet of music, a rubber duck floats beside him" width="100%"></picture></p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="img/header-dark.png"><img src="img/header.png" alt="A man with headphones stands in an old bathtub and sings from a sheet of music, a rubber duck floats beside him" width="100%"></picture></p>
 
 **One score. Practice material for every part.**
 
@@ -25,3 +25,5 @@ practice-duck ist ein Plugin für Claude. Aus der Partitur eines Chors oder Inst
 ## Licence
 
 [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0). This is primarily a code experiment; compare the notes and the music with the source before use.
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="img/ai-basic-dark.svg"><img src="img/ai-basic.svg" alt="AI" height="18" align="absmiddle"></picture> 2026 Created with AI assistance. [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0).
