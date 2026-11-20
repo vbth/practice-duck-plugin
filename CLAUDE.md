@@ -1,4 +1,4 @@
-# Project name
+# practice-duck-plugin
 
 TODO: one sentence on what this repository is. Keep this file short: only what the agent cannot read from the repo.
 
