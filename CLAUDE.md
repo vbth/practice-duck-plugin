@@ -1,6 +1,6 @@
 # practice-duck-plugin
 
-TODO: one sentence on what this repository is. Keep this file short: only what the agent cannot read from the repo.
+Public release repository of the practice-duck plugin: it holds the releases (the `.plugin` file, example ZIPs, notes) and this README; source code and website are in the private repository `vbth/plugin-practice-duck`. Keep this file short: only what the agent cannot read from the repo.
 
 ## Working style
 
